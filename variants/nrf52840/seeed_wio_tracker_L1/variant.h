@@ -8,6 +8,12 @@
 #define USE_LFXO                 // 32.768kHz crystal for LFCLK
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+//  Sample size change
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#define DISPLAY_FORCE_SMALL_FONTS
+#define DISPLAY_FORCE_TOMTHUMB_FONT
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 //  Pin Capacity Definitions
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 #define PINS_COUNT (33u)       // Total GPIO pins

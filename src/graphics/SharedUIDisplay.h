@@ -35,6 +35,21 @@ namespace graphics
 #define textFifthLine_large (textFourthLine_large + (FONT_HEIGHT_SMALL + 5))
 #define textSixthLine_large (textFifthLine_large + (FONT_HEIGHT_SMALL + 5))
 
+// Tiny Font Spacing (TomThumb)
+// Only active when DISPLAY_FORCE_TOMTHUMB_FONT is defined
+#ifdef DISPLAY_FORCE_TOMTHUMB_FONT
+
+#define TINY_REDUCE 5
+
+#define textFirstLine_tiny (FONT_HEIGHT_SMALL + 1)
+#define textSecondLine_tiny (textFirstLine_tiny + (FONT_HEIGHT_SMALL - TINY_REDUCE + 5))
+#define textThirdLine_tiny (textSecondLine_tiny + (FONT_HEIGHT_SMALL - TINY_REDUCE + 5))
+#define textFourthLine_tiny (textThirdLine_tiny + (FONT_HEIGHT_SMALL - TINY_REDUCE + 5))
+#define textFifthLine_tiny (textFourthLine_tiny + (FONT_HEIGHT_SMALL - TINY_REDUCE + 5))
+#define textSixthLine_tiny (textFifthLine_tiny + (FONT_HEIGHT_SMALL - TINY_REDUCE + 5))
+
+#endif
+
 // Quick screen access
 #define SCREEN_WIDTH display->getWidth()
 #define SCREEN_HEIGHT display->getHeight()

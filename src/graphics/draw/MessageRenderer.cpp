@@ -24,7 +24,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "configuration.h"
 #if HAS_SCREEN
 #include "MessageRenderer.h"
-
+#ifdef DISPLAY_FORCE_TOMTHUMB_FONT
+#define MESSAGE_TINY_Y_OFFSET -3
+#else
+#define MESSAGE_TINY_Y_OFFSET 0
+#endif
 // Core includes
 #include "NodeDB.h"
 #include "configuration.h"

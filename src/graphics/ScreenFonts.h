@@ -103,3 +103,44 @@
 #define FONT_HEIGHT_SMALL _fontHeight(FONT_SMALL)
 #define FONT_HEIGHT_MEDIUM _fontHeight(FONT_MEDIUM)
 #define FONT_HEIGHT_LARGE _fontHeight(FONT_LARGE)
+
+// ============================================================================
+// FINAL OVERRIDE: Force TomThumb font
+// ============================================================================
+#ifdef DISPLAY_FORCE_TOMTHUMB_FONT
+
+#include "graphics/fonts/OLEDDisplayFontsTomThumb.h"
+
+// -----------------------------
+// Replace all Meshtastic fonts
+// -----------------------------
+#undef FONT_SMALL_LOCAL
+#undef FONT_MEDIUM_LOCAL
+#undef FONT_LARGE_LOCAL
+
+#undef FONT_SMALL
+#undef FONT_MEDIUM
+#undef FONT_LARGE
+
+#define FONT_SMALL_LOCAL TomThumb4x6
+#define FONT_MEDIUM_LOCAL TomThumb4x6
+#define FONT_LARGE_LOCAL TomThumb4x6
+
+#define FONT_SMALL TomThumb4x6
+#define FONT_MEDIUM TomThumb4x6
+#define FONT_LARGE TomThumb4x6
+
+// -------------------------------------------------------
+// Override the *line height used for spacing*, NOT glyphs
+// TomThumb is 6 px tall → we give it 11 px layout height
+// -------------------------------------------------------
+#undef FONT_HEIGHT_SMALL
+#undef FONT_HEIGHT_MEDIUM
+#undef FONT_HEIGHT_LARGE
+
+#define FONT_HEIGHT_SMALL 6
+#define FONT_HEIGHT_MEDIUM 6
+#define FONT_HEIGHT_LARGE 6
+
+#endif
+// ============================================================================

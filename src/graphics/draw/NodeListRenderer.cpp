@@ -424,7 +424,11 @@ void drawNodeListScreen(OLEDDisplay *display, OLEDDisplayUiState *state, int16_t
                         EntryRenderer renderer, NodeExtrasRenderer extras, float heading, double lat, double lon)
 {
     const int COMMON_HEADER_HEIGHT = FONT_HEIGHT_SMALL - 1;
-    const int rowYOffset = FONT_HEIGHT_SMALL - 3;
+    int rowYOffset = FONT_HEIGHT_SMALL - 3;
+
+#ifdef DISPLAY_FORCE_TOMTHUMB_FONT
+    rowYOffset += 4;
+#endif
     bool locationScreen = false;
 
     if (strcmp(title, "Bearings") == 0)
@@ -443,6 +447,9 @@ void drawNodeListScreen(OLEDDisplay *display, OLEDDisplayUiState *state, int16_t
 
     // Space below header
     y += COMMON_HEADER_HEIGHT;
+#ifdef DISPLAY_FORCE_TOMTHUMB_FONT
+    y += 2; // Push entire list down by 2 pixels for TomThumb
+#endif
 
     int totalEntries = nodeDB->getNumMeshNodes();
     int totalRowsAvailable = (display->getHeight() - y) / rowYOffset;

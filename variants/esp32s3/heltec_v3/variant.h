@@ -1,6 +1,8 @@
 #define LED_PIN LED
 
 #define USE_SSD1306 // Heltec_v3 has a SSD1306 display
+#define DISPLAY_FORCE_SMALL_FONTS
+#define DISPLAY_FORCE_TOMTHUMB_FONT
 
 #define RESET_OLED RST_OLED
 #define I2C_SDA SDA_OLED // I2C pins for this board

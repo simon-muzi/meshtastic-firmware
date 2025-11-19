@@ -380,6 +380,17 @@ const int *getTextPositions(OLEDDisplay *display)
 {
     static int textPositions[7]; // Static array that persists beyond function scope
 
+#ifdef DISPLAY_FORCE_TOMTHUMB_FONT
+    textPositions[0] = textZeroLine;
+    textPositions[1] = textFirstLine_tiny;
+    textPositions[2] = textSecondLine_tiny;
+    textPositions[3] = textThirdLine_tiny;
+    textPositions[4] = textFourthLine_tiny;
+    textPositions[5] = textFifthLine_tiny;
+    textPositions[6] = textSixthLine_tiny;
+    return textPositions;
+#endif
+
     if (isHighResolution) {
         textPositions[0] = textZeroLine;
         textPositions[1] = textFirstLine_medium;

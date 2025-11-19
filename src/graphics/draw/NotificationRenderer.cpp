@@ -278,6 +278,9 @@ void NotificationRenderer::drawNodePicker(OLEDDisplay *display, OLEDDisplayUiSta
     uint16_t totalLines = lineCount + alertBannerOptions;
     uint16_t screenHeight = display->height();
     uint8_t effectiveLineHeight = FONT_HEIGHT_SMALL - 3;
+#ifdef DISPLAY_FORCE_TOMTHUMB_FONT
+    effectiveLineHeight = FONT_HEIGHT_SMALL + 2;
+#endif
     uint8_t visibleTotalLines = std::min<uint8_t>(totalLines, (screenHeight - vPadding * 2) / effectiveLineHeight);
     uint8_t linesShown = lineCount;
     const char *linePointers[visibleTotalLines + 1] = {0}; // this is sort of a dynamic allocation
@@ -408,6 +411,9 @@ void NotificationRenderer::drawAlertBannerOverlay(OLEDDisplay *display, OLEDDisp
 
     uint16_t screenHeight = display->height();
     uint8_t effectiveLineHeight = FONT_HEIGHT_SMALL - 3;
+#ifdef DISPLAY_FORCE_TOMTHUMB_FONT
+    effectiveLineHeight = FONT_HEIGHT_SMALL + 2;
+#endif
     uint8_t visibleTotalLines = std::min<uint8_t>(totalLines, (screenHeight - vPadding * 2) / effectiveLineHeight);
     uint8_t linesShown = lineCount;
     const char *linePointers[visibleTotalLines + 1] = {0}; // this is sort of a dynamic allocation
@@ -633,6 +639,9 @@ void NotificationRenderer::drawNotificationBox(OLEDDisplay *display, OLEDDisplay
 
     uint16_t screenHeight = display->height();
     uint8_t effectiveLineHeight = FONT_HEIGHT_SMALL - 3;
+#ifdef DISPLAY_FORCE_TOMTHUMB_FONT
+    effectiveLineHeight = FONT_HEIGHT_SMALL + 2;
+#endif
     uint8_t visibleTotalLines = std::min<uint8_t>(lineCount, (screenHeight - vPadding * 2) / effectiveLineHeight);
     uint16_t contentHeight = visibleTotalLines * effectiveLineHeight;
     uint16_t boxHeight = contentHeight + vPadding * 2;
@@ -664,6 +673,9 @@ void NotificationRenderer::drawNotificationBox(OLEDDisplay *display, OLEDDisplay
 
     // === Draw Content ===
     int16_t lineY = boxTop + vPadding;
+#ifdef DISPLAY_FORCE_TOMTHUMB_FONT
+    lineY += 2; // Offset entire options list downward
+#endif
     for (int i = 0; i < lineCount; i++) {
         int16_t textX = boxLeft + (boxWidth - lineWidths[i]) / 2;
         if (needs_bell && i == 0) {
